@@ -1,0 +1,20 @@
+#!/bin/sh
+
+# default terminal
+export TERMINAL="urxvt"
+
+# dause suspend timer and display timeout for applications
+caffeine &
+
+# dower manager (Power-saving options for cpu, wifi, usb, etc.)
+tlp start &
+
+# dight mode
+#fluxgui &
+# don-gui mode. gui is currently useless. -l = latitude. Use any latitude and it works via timezone 
+xflux -l 0 -k 4000
+
+# dcreenshot program
+flameshot &
+
+xset r rate 250
