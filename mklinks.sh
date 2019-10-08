@@ -1,9 +1,7 @@
 #!/bin/sh
 
-ln vifmrc 	   ~/.vifm/
 ln vimrc 	   ~/.vimrc
 ln zshrc 	   ~/.zshrc
-ln custom-red.vifm ~/.vifm/colors/custom-red.vifm
 
 ln oh-my-zsh-custom/themes/agnoster.zsh-theme ~/.oh-my-zsh/custom/themes/
 ln oh-my-zsh-custom/themes/example.zsh-theme  ~/.oh-my-zsh/custom/themes/

@@ -12,13 +12,9 @@
 " When started as "evim", evim.vim will already have done these settings.
 "
 call plug#begin()
-	Plug 'Jiangmiao/auto-pairs'
-
 call plug#end()
 
 hi SpellBad ctermbg=white ctermfg=black
-let g:ale_c_parse_compile_commands = 1
-let g:ale_c_parse_makefile = 1
 
 if v:progname =~? "evim"
   finish

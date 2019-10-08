@@ -74,33 +74,7 @@ plugins=(
 )
 source $ZSH/oh-my-zsh.sh
 
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-
+# aliases
 alias ls='ls -F --color=auto --group-directories-first' 
 alias lx='ls -1lFh'
 alias lxa='ls -alFh'
@@ -126,27 +100,14 @@ alias steam="GDK_SCALE=2 steam"
 alias bctl="bluetoothctl"
 alias nv="nvim"
 
-#autoload -U promptinit && promptinit
-#alias dir='dir --color=auto'
-#alias vdir='vdir --color=auto'
+alias dir='dir --color=auto'
+alias vdir='vdir --color=auto'
 
 alias grep='grep -i --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-export VISUAL=/usr/bin/vim
-export EDITOR=/usr/bin/vim
-
-# Adds diff color scheme to tty and neofetches for the fancy stuff
-#if [ "$TERM" = "linux" ]; then
-	#_SEDCMD='s/.*\*color\([0-9]\{1,\}\).*#\([0-9a-fA-F]\{6\}\).*/\1 \2/p'
-	#for i in $(sed -n "$_SEDCMD" $HOME/.Xresources | awk '$1 < 16 {printf "\\e]P%X%s", $1, $2}'); do
-		#echo -en "$i"
-#	done
-#	clear
-#	if [ "$TTY" = "/dev/tty1" ]; then
-#		neofetch
-	#fi
-#fi
+export VISUAL=/usr/bin/nvim
+export EDITOR=/usr/bin/nvim
 
 if [ "$TERM" = "linux" ]; then
 	clear
