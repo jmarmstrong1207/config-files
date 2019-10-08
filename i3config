@@ -112,6 +112,10 @@ exec nitrogen --restore
 
 exec xset r rate 250
 
+# trackPoint sensitivty settings
+exec xinput set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Speed" 0
+exec xinput set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Profile Enabled" 1 0
+
 exec --no-startup-id xautolock -detectsleep \
   -time 10 -locker "i3lock -c 333333" \
   -notify 30 \
@@ -154,10 +158,6 @@ exec --no-startup-id pasystray
 exec --no-startup-id unclutter
 
 exec --no-startup-id numlockx
-
-exec --no-startup-id discord
-
-
 
 # ----------------------------------------------------------
 # i3 keybinds
