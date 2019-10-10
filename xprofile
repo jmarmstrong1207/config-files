@@ -2,6 +2,3 @@
 
 # default terminal
 export TERMINAL="urxvt"
-
-# use qt5ct for theming QT programs
-export QT_QPA_PLATFORMTHEME="qt5ct"
