@@ -9,5 +9,3 @@ ln oh-my-zsh-custom/themes/mh.zsh-theme       ~/.oh-my-zsh/custom/themes/
 
 ln xinitrc  ~/.xinitrc
 ln xprofile ~/.xprofile
-
-ln i3config ~/.config/i3/config
