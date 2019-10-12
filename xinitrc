@@ -3,6 +3,8 @@
 # variables that desktop managers automatically load (must be added to manually start x)
 export QT_QPA_PLATFORMTHEME="qt5ct"
 
+# default terminal
+export TERMINAL="urxvt"
 
 
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
@@ -10,8 +12,6 @@ export QT_QPA_PLATFORMTHEME="qt5ct"
 [ -f /etc/xprofile ] && . /etc/xprofile
 [ -f ~/.xprofile ] && . ~/.xprofile
 
-# Programs that dont automatically run by DE or display manager
-dunst &
 
 # start programs, not just WMs/DEs, via startx ~/.xinitrc "program"
 if [[ "$1" = "" ]]; then
