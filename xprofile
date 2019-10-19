@@ -2,3 +2,6 @@
 
 # default terminal
 export TERMINAL="urxvt"
+
+# variable to configure QT themes (DEs do it automatically in their own settings manager, but WMs like i3 don't)
+export QT_QPA_PLATFORMTHEME="qt5ct"

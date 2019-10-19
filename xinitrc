@@ -1,14 +1,10 @@
 #!/bin/sh
 
-# variables that desktop managers automatically load (must be added to manually start x)
-export QT_QPA_PLATFORMTHEME="qt5ct"
-
-
+[ -f /etc/xprofile ] && . /etc/xprofile
+[ -f ~/.xprofile ] && . ~/.xprofile
 
 [[ -f ~/.Xresources ]] && xrdb -merge -I$HOME ~/.Xresources
 
-[ -f /etc/xprofile ] && . /etc/xprofile
-[ -f ~/.xprofile ] && . ~/.xprofile
 
 # Programs that dont automatically run by DE or display manager
 dunst &
