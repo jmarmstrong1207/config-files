@@ -98,7 +98,7 @@ hi Search ctermbg=white ctermfg=black
 
 " Same reason as before. bg makes it hard to see the text, so it defaults to
 " black
-hi Visual ctermfg=232
+hi Visual ctermbg=white ctermfg=black
 
 hi LineNr ctermfg=gray
 hi CursorLineNr ctermfg=gray
