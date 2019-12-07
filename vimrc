@@ -129,4 +129,6 @@ nnoremap <A-l> <C-w>l
 nnoremap <A--> <C-w>-
 nnoremap <A-=> <C-w>+
 nnoremap <A-0> <C-w>=
+nnoremap <A-.> <C-w><
+nnoremap <A-,> <C-w>>
 
