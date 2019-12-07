@@ -1,0 +1,332 @@
+# i3 config file (v4)
+
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+# ----------------------------------------------------------
+# i3 settings
+set $mod mod4
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below.
+#font pango:monospace 8
+
+font pango:DejaVu Sans, DejaVu Sans Nerd Font 10
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# window colors
+#						title-border  bg      fg      indicator child border 
+client.focused			#888888		  #888888 #ffffff #cccccc   #888888
+client.unfocused        #000000       #000000 #888888 #292d2e   #222222
+client.focused_inactive #000000		  #000000 #ffffff #cccccc   #222222
+
+# disable titlebar
+new_window pixel 1
+new_float pixel 1
+
+# enable titlebar, small border
+#for_window [class="^.*"] border normal 1
+
+# Show urgency color for 500 ms more when workspace is select. Makes it easier to see what window raised the urgency event (even though the window that raised the urgency event is focused when you switch to the workspace, this makes it more noticable)
+force_display_urgency_hint 500 ms
+# ----------------------------------------------------------
+# i3bar
+
+bar
+{
+	position				top
+	status_command          i3status
+	i3bar_command           i3bar --transparency
+	tray_output				primary
+	strip_workspace_numbers yes
+	separator_symbol 		" | "
+
+	colors
+	{
+		# transparency mode
+		set $t 00
+
+		background #$t000000
+							#border   bg      txt
+		focused_workspace   #ffffff   #ffffff #000000
+		inactive_workspace  #$t222222 #$t222222 #ffffff
+		urgent_workspace    #ff0000   #ff0000 #ffffff
+	}
+}
+
+# ----------------------------------------------------------
+# assign windows specific workspaces
+
+assign [class="(?i)firefox"] $ws1
+assign [class="(?i)discord"] $ws3
+assign [class="(?i)spotify"] $ws4
+assign [class="(?i)steam"] $ws5
+
+# ----------------------------------------------------------
+# open specific applications in floating mode
+
+for_window [title="(?i)alsamixer"] 					floating enable  
+for_window [class="(?i)calamares"] 					floating enable
+for_window [class="(?i)Clipgrab"] 					floating enable
+for_window [title="(?i)File Transfer*"] 			floating enable
+for_window [class="(?i)Galculator"] 				floating enable  
+for_window [class="(?i)GParted"] 					floating enable
+for_window [title="(?i)i3_help"] 					floating enable sticky enable
+for_window [class="(?i)Lightdm-settings"] 			floating enable
+for_window [class="(?i)Lxappearance"] 				floating enable
+for_window [class="(?i)Manjaro-hello"] 			  	floating enable
+for_window [class="(?i)Manjaro Settings Manager"] 	floating enable
+for_window [title="(?i)MuseScore: Play Panel"] 	  	floating enable
+for_window [class="(?i)Nitrogen"] 				  	floating enable sticky enable
+for_window [class="(?i)octopi"] 				  	floating enable
+for_window [class="(?i)Pamac-manager"] 			  	floating enable
+for_window [class="(?i)Pamac-updater"] 			  	floating enable
+for_window [class="(?i)Pavucontrol"] 			  	floating enable
+for_window [class="(?i)Qtconfig-qt4"] 			  	floating enable
+for_window [class="(?i)qt5ct"] 					  	floating enable
+for_window [class="(?i)Simple-scan"] 			  	floating enable
+for_window [class="(?i)System-config-printer.py"] 	floating enable
+for_window [class="(?i)Skype"] 						floating enable
+for_window [class="(?i)Timeset-gui"] 				floating enable
+for_window [class="(?i)virtualbox"] 			  	floating enable
+for_window [class="(?i)Xfburn"] 					floating enable
+
+for_window [instance="origin.exe"] floating enable
+for_window [class="(?i)plank"] 					floating enable
+
+# ----------------------------------------------------------
+# i3-gaps settings
+
+# default: 5
+gaps inner 8
+#gaps outer -5
+
+# ----------------------------------------------------------
+# setup commands (DE/WM-independent setup commands are in .xprofile)
+
+# set background
+#exec --no-startup-id feh --bg-fill /usr/share/backgrounds/bluemountain.jpg
+
+exec nitrogen --restore
+
+exec xset r rate 250
+
+exec --no-startup-id xautolock -detectsleep \
+  -time 29 -locker "betterlockscreen -l blur" \
+  -notify 30 \
+  -notifier "notify-send -u critical -t 10000 -- 'LOCKING screen in 30 seconds'" 
+# ----------------------------------------------------------
+#auto-start programs (higher priority apps are higher in the list)
+
+# sudo credentials for starting up apps w/o terminal
+exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
+
+# power manager
+exec --no-startup-id xfce4-power-manager
+
+# pause suspend timer
+exec --no-startup-id caffeine
+
+exec --no-startup-id tlp start
+
+# bluetooth app indicator
+exec --no-startup-id blueman-applet
+
+# network manager
+exec --no-startup-id nm-applet --indicator
+
+# automounting manager and tray applet
+exec --no-startup-id udiskie --smart-tray
+
+# compositor for transparency effects
+exec --no-startup-id compton -o 0
+
+# clipboard manager
+exec --no-startup-id clipit
+
+# volume tray applet
+exec --no-startup-id pa-applet
+
+# screenshotter
+exec --no-startup-id flameshot
+
+# turn off mouse cursor when idling
+exec --no-startup-id unclutter
+
+exec --no-startup-id numlockx
+
+# bluelight filter
+exec--no-startup-id redshift-gtk
+
+exec --no-startup-id discord
+
+# ----------------------------------------------------------
+# i3 keybinds
+
+# Kill window with middle mouse button on title bar
+bindsym --release button2 kill
+
+# Right click to toggle floating
+bindsym --release button3 floating toggle
+
+# start terminal
+bindsym $mod+Return exec --no-startup-id i3-sensible-terminal
+
+# kill focused window
+bindsym $mod+q kill
+
+# start dmenu (a program launcher)
+bindsym $mod+d exec --no-startup-id dmenu_run -nb '#000000' -sf '#000000' -sb '#ffffff' -nf '#ffffff' -i -b -fn "Sans Serif"
+
+# major window/workspace manipulation keybinds
+# change focus
+bindsym $mod+h 	   		 focus left
+bindsym $mod+j 	   		 focus down
+bindsym $mod+k 	   		 focus up
+bindsym $mod+l 	   		 focus right
+
+bindsym $mod+Left  		 focus left
+bindsym $mod+Down  		 focus down
+bindsym $mod+Up	   		 focus up
+bindsym $mod+Right 		 focus right
+
+# move focused window
+bindsym $mod+shift+h 	 move left 75 px
+bindsym $mod+shift+j 	 move down 75 px
+bindsym $mod+shift+k 	 move up 75 px
+bindsym $mod+shift+l 	 move right 75 px
+
+bindsym $mod+shift+Left  move left
+bindsym $mod+shift+Down  move down
+bindsym $mod+shift+Up 	 move up
+bindsym $mod+shift+Right move right
+
+# resize window (you can also use the mouse for that) (px = floating, ppt = tiled)
+bindsym $mod+ctrl+h 	 resize shrink width 75 px or 10 ppt
+bindsym $mod+ctrl+j 	 resize grow height 75 px or 10 ppt
+bindsym $mod+ctrl+k 	 resize shrink height 75 px or 10 ppt
+bindsym $mod+ctrl+l 	 resize grow width 75 px or 10 ppt
+
+bindsym $mod+ctrl+Left   resize shrink width 75 px or 10 ppt
+bindsym $mod+ctrl+Down   resize grow height 75 px or 10 ppt
+bindsym $mod+ctrl+Up 	 resize shrink height 75 px or 10 ppt
+bindsym $mod+ctrl+Right  resize grow width 75 px or 10 ppt
+
+set $ws1 1:Web
+set $ws2 2:Work
+set $ws3 3:Social
+set $ws4 4:Music
+set $ws5 5:Games
+set $ws6 6
+set $ws7 7
+set $ws8 8
+set $ws9 9
+set $ws10 10
+	
+# switch to workspace
+bindsym $mod+1 			 workspace $ws1
+bindsym $mod+2 			 workspace $ws2
+bindsym $mod+3 			 workspace $ws3
+bindsym $mod+4 			 workspace $ws4
+bindsym $mod+5 			 workspace $ws5
+bindsym $mod+6 			 workspace $ws6
+bindsym $mod+7 			 workspace $ws7
+bindsym $mod+8 			 workspace $ws8
+bindsym $mod+9 			 workspace $ws9
+bindsym $mod+0 			 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+shift+1 	 move workspace $ws1
+bindsym $mod+shift+2 	 move workspace $ws2
+bindsym $mod+shift+3 	 move workspace $ws3
+bindsym $mod+shift+4 	 move workspace $ws4
+bindsym $mod+shift+5 	 move workspace $ws5
+bindsym $mod+shift+6 	 move workspace $ws6
+bindsym $mod+shift+7 	 move workspace $ws7
+bindsym $mod+shift+8 	 move workspace $ws8
+bindsym $mod+shift+9 	 move workspace $ws9
+bindsym $mod+shift+0 	 move workspace $ws10
+
+# move workspace to different display
+bindsym $mod+Mod1+k    	 move workspace to output up
+bindsym $mod+Mod1+j    	 move workspace to output down
+bindsym $mod+Mod1+h    	 move workspace to output left
+bindsym $mod+Mod1+l    	 move workspace to output right
+
+bindsym $mod+Mod1+Up     move workspace to output up
+bindsym $mod+Mod1+Down   move workspace to output down
+bindsym $mod+Mod1+Left   move workspace to output left
+bindsym $mod+Mod1+Right  move workspace to output right
+
+# split in horizontal orientation
+bindsym $mod+g split h 
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# focus the child container
+bindsym $mod+shift+a focus child
+
+# reload the configuration file
+bindsym --release $mod+shift+c reload 
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym --release $mod+shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym $mod+shift+e exec --no-startup-id i3-msg exit 
+
+bindsym $mod+shift+Tab move scratchpad
+bindsym $mod+Tab scratchpad show
+
+# sticky the focused floating window
+bindsym $mod+grave sticky toggle
+
+# ----------------------------------------------------------
+# other custom keybinds
+
+bindsym --release XF86AudioMicMute		exec --no-startup-id amixer set Capture toggle
+
+bindsym --release XF86MonBrightnessUp   exec --no-startup-id $HOME/.config/i3/scripts/brightness-control up
+
+bindsym --release XF86MonBrightnessDown exec --no-startup-id $HOME/.config/i3/scripts/brightness-control down
+
+bindsym --release XF86Display      		exec --no-startup-id xrandr --auto && dunstify -a "XRandR" -r 5001 "XRandR refreshed"
+
+bindsym --release XF86Tools        		exec --no-startup-id urxvt -e vim $HOME/.config/i3/config 
+
+bindsym --release XF86Favorites    		exec --no-startup-id thunar
+
+bindsym --release Pause		    		exec playerctl play-pause
+
+bindsym --release XF86AudioPause		exec playerctl play-pause
+
+bindsym --release XF86AudioNext			exec playerctl next
+
+bindsym --release XF86AudioPrev			exec playerctl previous
+
+# printscreen keybind
+bindsym --release Print            		exec --no-startup-id flameshot gui
+
+# firefox bind
+bindsym --release $mod+shift+f exec firefox; workspace $ws1
+
+# ranger bind
+bindsym --release $mod+shift+d exec --no-startup-id urxvt -e ranger

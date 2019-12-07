@@ -2,6 +2,7 @@
 
 ln vimrc 	   ~/.vimrc
 ln zshrc 	   ~/.zshrc
+ln i3config ~/.config/i3/config
 
 ln oh-my-zsh-custom/themes/agnoster.zsh-theme ~/.oh-my-zsh/custom/themes/
 ln oh-my-zsh-custom/themes/example.zsh-theme  ~/.oh-my-zsh/custom/themes/
