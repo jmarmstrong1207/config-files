@@ -35,7 +35,7 @@ force_display_urgency_hint 500 ms
 bar
 {
 	position				top
-	status_command          i3status
+	status_command          py3status
 	i3bar_command           i3bar --transparency
 
 	tray_output				primary
@@ -127,9 +127,6 @@ exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 
 # power manager
 exec --no-startup-id xfce4-power-manager
-
-# notification daemon
-exec --no-startup-id dunst
 
 # pause suspend timer
 exec --no-startup-id caffeine
