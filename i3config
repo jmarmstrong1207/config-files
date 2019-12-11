@@ -68,6 +68,8 @@ assign [class="(?i)steam"] $ws5
 # ----------------------------------------------------------
 # open specific applications in floating mode
 
+for_window [title="urxvt"] 							floating enable  
+
 for_window [title="(?i)alsamixer"] 					floating enable  
 for_window [class="(?i)calamares"] 					floating enable
 for_window [class="(?i)Clipgrab"] 					floating enable
