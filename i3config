@@ -130,6 +130,13 @@ exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
 # power manager
 exec --no-startup-id xfce4-power-manager
 
+# notification daemon
+exec --no-startup-id dunst
+
+# touch gestures
+exec --no-startup-id touchegg
+
+
 # pause suspend timer
 exec --no-startup-id caffeine
 
