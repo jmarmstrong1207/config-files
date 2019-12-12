@@ -136,7 +136,6 @@ exec --no-startup-id dunst
 # touch gestures
 exec --no-startup-id touchegg
 
-
 # pause suspend timer
 exec --no-startup-id caffeine
 
