@@ -49,7 +49,7 @@ bar
 		# transparency
 		set $t
 
-		background #$t222222
+		background #$t000000
 							#border   bg      txt
 		focused_workspace   #ffffff   #ffffff #000000
 		inactive_workspace  #222222   #222222 #ffffff
