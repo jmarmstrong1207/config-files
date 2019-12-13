@@ -136,6 +136,7 @@ exec --no-startup-id dunst
 # touch gestures
 exec --no-startup-id touchegg
 
+
 # pause suspend timer
 exec --no-startup-id caffeine
 
@@ -318,7 +319,7 @@ bindsym --release XF86MonBrightnessUp   exec --no-startup-id $HOME/.config/i3/sc
 
 bindsym --release XF86MonBrightnessDown exec --no-startup-id $HOME/.config/i3/scripts/brightness-control down
 
-bindsym --release XF86Display      		exec --no-startup-id xrandr --auto && dunstify -a "XRandR" -r 5001 "XRandR refreshed"
+bindsym --release XF86Display      		exec --no-startup-id autorandr --change
 
 bindsym --release XF86Tools        		exec --no-startup-id urxvt -e vim $HOME/.config/i3/config 
 
