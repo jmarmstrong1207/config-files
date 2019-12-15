@@ -24,6 +24,9 @@ client.focused_inactive #000000		  #000000 #ffffff #cccccc   #222222
 new_window pixel 1
 new_float pixel 1
 
+# quasi alternating
+for_window [class=".*"] split toggle #toggles split at each new window
+
 # enable titlebar, small border
 #for_window [class="^.*"] border normal 1
 
