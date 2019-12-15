@@ -26,6 +26,7 @@ new_float pixel 1
 
 # quasi alternating
 for_window [class=".*"] split toggle #toggles split at each new window
+default_orientation vertical
 
 # enable titlebar, small border
 #for_window [class="^.*"] border normal 1
