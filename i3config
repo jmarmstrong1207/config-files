@@ -155,7 +155,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id udiskie --smart-tray
 
 # compositor for transparency effects
-exec --no-startup-id compton -o 0
+exec --no-startup-id picom -o 0
 
 # clipboard manager
 exec --no-startup-id clipit
