@@ -343,4 +343,4 @@ bindsym --release $mod+shift+f exec firefox; workspace $ws1
 # ranger bind
 bindsym --release $mod+shift+d exec --no-startup-id urxvt -e ranger
 
-bindsym --release ctrl+Mod2+delete exec --no-startup-id betterlockscreen -l blur
+bindsym --release ctrl+Mod1+Delete exec --no-startup-id betterlockscreen -l blur
