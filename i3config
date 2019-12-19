@@ -108,7 +108,7 @@ gaps inner 8
 # ----------------------------------------------------------
 # setup commands (DE/WM-independent setup commands are in .xprofile)
 
-exec --no-startup-id 
+exec --no-startup-id ~/.config/i3/autostart.sh
 
 # set background
 exec --no-startup-id nitrogen --restore
