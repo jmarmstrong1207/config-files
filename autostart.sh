@@ -1,9 +1,9 @@
-
+#!/bin/sh
 # ----------------------------------------------------------
 #auto-start programs (higher priority apps are higher in the list)
 
 # sudo credentials for starting up ap w/o terminal
-/usr/lib/polkit-kde-authentication-agent-1
+/usr/lib/polkit-kde-authentication-agent-1 &
 
 # power manager
 xfce4-power-manager &
