@@ -108,71 +108,15 @@ gaps inner 8
 # ----------------------------------------------------------
 # setup commands (DE/WM-independent setup commands are in .xprofile)
 
+exec --no-startup-id 
+
 # set background
 exec --no-startup-id nitrogen --restore
-
-exec --no-startup-id xset r rate 250
-
-# trackPoint sensitivty settings
-exec --no-startup-id xinput set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Speed" 1
-exec --no-startup-id xinput set-prop "TPPS/2 Elan TrackPoint" "libinput Accel Profile Enabled" 1 0
-
-exec --no-startup-id xcalib -d :0 ~/B140QAN02_0_01.icm
 
 exec --no-startup-id xautolock -detectsleep \
   -time 30 -locker "betterlockscreen -l blur" \
   -notify 30 \
   -notifier "notify-send -u critical -t 10000 -- 'LOCKING screen in 30 seconds'" 
-# ----------------------------------------------------------
-#auto-start programs (higher priority apps are higher in the list)
-
-# sudo credentials for starting up ap w/o terminal
-exec --no-startup-id /usr/lib/polkit-kde-authentication-agent-1
-
-# power manager
-exec --no-startup-id xfce4-power-manager
-
-# notification daemon
-exec --no-startup-id dunst
-
-# touch gestures
-exec --no-startup-id touchegg
-
-# pause suspend timer
-exec --no-startup-id caffeine
-
-exec --no-startup-id tlp start
-
-exec --no-startup-id flameshot
-
-# bluetooth app indicator
-exec --no-startup-id blueman-applet
-
-# network manager
-exec --no-startup-id nm-applet
-
-# automounting manager and tray applet
-exec --no-startup-id udiskie --smart-tray
-
-# compositor for transparency effects
-exec --no-startup-id compton -o 0
-
-# clipboard manager
-exec --no-startup-id clipit
-
-# volume tray applet
-exec --no-startup-id pa-applet
-
-# turn off mouse cursor when idling
-exec --no-startup-id unclutter
-
-# bluelight filter
-exec --no-startup-id redshift-gtk
-
-exec --no-startup-id screenrotator
-
-# onscreen keyboard
-exec --no-startup-id onboard
 # ----------------------------------------------------------
 # i3 keybinds
 
