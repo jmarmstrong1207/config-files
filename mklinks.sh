@@ -1,6 +1,7 @@
 #!/bin/sh
 
 ln vimrc 	   ~/.vimrc
+ln init.vim 	   ~/.config/nvim/
 ln zshrc 	   ~/.zshrc
 ln i3config ~/.config/i3/config
 
